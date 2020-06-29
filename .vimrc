@@ -5,6 +5,7 @@ execute pathogen#infect()
 filetype plugin indent on
 set expandtab
 set shiftwidth=2
+set tabstop=2
 
 map <F1> :Vex
 
