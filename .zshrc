@@ -3,7 +3,9 @@ export PATH="${PATH}:${HOME}/.local/bin"
 
 ## OS Specific Path
 case $OSTYPE in
-  darwin*) export PATH="${PATH}:/Users/noahheague/Library/Python/3.7/bin";;
+  darwin*) 
+    export PATH="${PATH}:/Users/noahheague/Library/Python/3.7/bin"
+    alias walMac="${HOME}/scripts/wal";;  
 esac
 
 # oh-my-zsh
