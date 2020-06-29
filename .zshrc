@@ -1,4 +1,13 @@
-export ZSH="~/.oh-my-zsh"
+# Path
+export PATH="${PATH}:${HOME}/.local/bin"
+
+## OS Specific Path
+case $OSTYPE in
+  darwin*) export PATH="${PATH}:/Users/noahheague/Library/Python/3.7/bin";;
+esac
+
+# oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
 plugins=(git-prompt git zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
@@ -13,6 +22,9 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Prompt
 function precmd {
-        PROMPT="🌊 [%c] "
-        RPROMPT="$(git_super_status)"
-      }
+  PROMPT="🌊 [%c] "
+  RPROMPT="$(git_super_status)"
+}
+
+# Wal
+(cat ~/.cache/wal/sequences &)              
