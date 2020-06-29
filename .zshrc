@@ -1,5 +1,7 @@
 # Path
 export PATH="${PATH}:${HOME}/.local/bin"
+export CONFIGDIR="${HOME}/.config"
+export XDG_CONFIG_HOME=$CONFIGDIR
 
 ## OS Specific Path
 case $OSTYPE in
@@ -9,12 +11,12 @@ case $OSTYPE in
 esac
 
 # oh-my-zsh
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$CONFIGDIR/oh-my-zsh"
 plugins=(git-prompt git zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # NVM
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$CONFIGDIR/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 

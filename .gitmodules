@@ -4,3 +4,9 @@
 [submodule ".nvm"]
 	path = .nvm
 	url = https://github.com/nvm-sh/nvm.git
+[submodule ".config/oh-my-zsh"]
+	path = .config/oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule ".config/nvm"]
+	path = .config/nvm
+	url = https://github.com/nvm-sh/nvm.git
