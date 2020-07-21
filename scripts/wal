@@ -1,2 +1,0 @@
-#!/bin/sh
-wal -n -i "$1" && osascript -e "tell application \"System Events\" to tell every desktop to set picture to \"$(cat "$HOME/.cache/wal/wal")\""

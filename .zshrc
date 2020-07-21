@@ -4,11 +4,11 @@ export CONFIGDIR="${HOME}/.config"
 export XDG_CONFIG_HOME=$CONFIGDIR
 
 ## OS Specific Path
-case $OSTYPE in
-  darwin*) 
-    export PATH="${PATH}:/Users/noahheague/Library/Python/3.7/bin"
-    alias walMac="${HOME}/scripts/wal";;  
-esac
+#case $OSTYPE in
+#  darwin*) 
+#    export PATH="${PATH}:/Users/noahheague/Library/Python/3.7/bin"
+#    alias walMac="${HOME}/scripts/wal";;  
+#esac
 
 # oh-my-zsh
 export ZSH="$CONFIGDIR/oh-my-zsh"
@@ -31,7 +31,7 @@ function precmd {
 }
 
 # Wal
-(cat ~/.cache/wal/sequences &)              
+# (cat ~/.cache/wal/sequences &)              
 
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
