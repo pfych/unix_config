@@ -39,3 +39,10 @@ export PATH="$HOME/.serverless/bin:$PATH"
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+# Nodejs
+export SKIP_PREFLIGHT_CHECK=true
+
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/.config/scripts/git_fzf.sh 
