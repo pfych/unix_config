@@ -12,3 +12,8 @@ checkout() {
   is_in_git_repo || return
   git checkout $(git branch | fzf-down)
 }
+
+commit() {
+  is_in_git_repo || return
+  git commit -m "[`git rev-parse --abbrev-ref HEAD | cut -f1,2 -d -`] $*"
+}
