@@ -46,5 +46,4 @@ export SKIP_PREFLIGHT_CHECK=true
 # FZF
 export FZF_DEFAULT_COMMAND='find . -type d \( -name node_modules -o -name .git -o -path name \) -prune -false -o -name "*"'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source ~/.config/scripts/git_fzf.sh 
-source ~/.config/scripts/cd_fzf.sh
+source ~/.config/scripts/custom_fzf.sh 
