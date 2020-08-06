@@ -7,4 +7,3 @@ fzf-down() {
 fcd() {
   cd $(fzf-down)
 }
-
