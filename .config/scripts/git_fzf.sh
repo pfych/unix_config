@@ -10,7 +10,11 @@ fzf-down() {
 
 checkout() {
   is_in_git_repo || return
-  git checkout $(git branch | fzf-down)
+  BRANCH=$(git branch -a | sed -e 's/^ *//g' -e '/HEAD ->/d' -e 's/remotes\///g' | fzf-down)
+  case "$BRANCH" in
+    *"origin"*) git checkout --track $BRANCH ;;
+    *) git checkout $BRANCH ;;
+  esac
 }
 
 commit() {
