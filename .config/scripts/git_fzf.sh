@@ -21,3 +21,15 @@ commit() {
   is_in_git_repo || return
   git commit -m "[`git rev-parse --abbrev-ref HEAD | cut -f1,2 -d -`] $*"
 }
+
+add() {
+  is_in_git_repo || return
+  git add `git status | grep modified: | sed -e 's/ *.*: *//g' | fzf -m`
+}
+
+# Restore unstaged files
+restore() {
+  is_in_git_repo || return
+  # TODO Adjust this to only list unstaged files!
+  git restore `git status | grep modified: | sed -e 's/ *.*: *//g' | fzf -m`
+}
