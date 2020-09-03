@@ -25,6 +25,7 @@ commit() {
 add() {
   is_in_git_repo || return
   git add `git status | grep modified: | sed -e 's/ *.*: *//g' | fzf -m`
+  git status
 }
 
 # Restore unstaged files
@@ -32,4 +33,5 @@ restore() {
   is_in_git_repo || return
   # TODO Adjust this to only list unstaged files!
   git restore `git status | grep modified: | sed -e 's/ *.*: *//g' | fzf -m`
+  git status
 }
