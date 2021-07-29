@@ -1,5 +1,5 @@
 syntax enable
-set relativenumber
+set number relativenumber
 execute pathogen#infect()
 
 filetype plugin indent on
@@ -19,3 +19,4 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_typescript_checkers = ['eslint']
 
+let g:markdown_fenced_languages = ['typescript', 'ts=typescript', 'javascript', 'js=javascript', 'json=javascript', 'scss', 'bash', 'sh=bash']
