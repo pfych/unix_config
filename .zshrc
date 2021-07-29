@@ -73,8 +73,15 @@ source ~/.config/scripts/custom_fzf.sh
 # Better dig
 source ~/.config/scripts/dig.sh
 
+# Scratchpad command
+source ~/.config/scripts/scratch.sh
+
+#Encrypt Files
+source ~/.config/scripts/encrypt.sh 
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/noah/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/noah/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/noah/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/noah/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+export TERM=xterm-256color
