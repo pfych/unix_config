@@ -19,7 +19,7 @@ checkout() {
 
 commit() {
   is_in_git_repo || return
-  git commit -m "[`git rev-parse --abbrev-ref HEAD | cut -f1,2 -d -`] $*"
+  git commit -m "[`git rev-parse --abbrev-ref HEAD | cut -f1,2 -d - | cut -f2 -d /`] $*"
 }
 
 add() {
@@ -31,7 +31,6 @@ add() {
 push() {
   is_in_git_repo || return
   ./scripts/increase-version.sh `echo 'patch\nminor\nmajor\n' | fzf`
-  commit 'Increment version'
   git push
 }
 
