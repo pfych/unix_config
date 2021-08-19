@@ -30,7 +30,7 @@ add() {
 
 push() {
   is_in_git_repo || return
-  ./scripts/increase-version.sh `echo 'patch\nminor\nmajor\n' | fzf`
+  ./scripts/increase-version.sh `echo 'patch\nminor\nmajor' | fzf`
   git push
 }
 

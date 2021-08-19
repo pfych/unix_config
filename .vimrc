@@ -20,3 +20,4 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_typescript_checkers = ['eslint']
 
 let g:markdown_fenced_languages = ['typescript', 'ts=typescript', 'javascript', 'js=javascript', 'json=javascript', 'scss', 'bash', 'sh=bash']
+
