@@ -79,6 +79,9 @@ source ~/.config/scripts/scratch.sh
 #Encrypt Files
 source ~/.config/scripts/encrypt.sh 
 
+# Vent
+source ~/.config/scripts/vent.sh
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/noah/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/noah/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
