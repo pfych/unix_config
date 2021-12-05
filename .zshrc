@@ -88,3 +88,15 @@ if [ -f '/Users/noah/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/noah/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/noah/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 export TERM=xterm-256color
+
+eval $(thefuck --alias)
+
+alias a=fuck
+
+function git() {
+  case $* in
+    rebase* ) HUSKY_SKIP_HOOKS=1 command git "$@";;
+    * ) command git "$@"
+  esac
+}
+
