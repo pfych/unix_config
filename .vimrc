@@ -22,9 +22,25 @@ let g:syntastic_typescript_checkers = ['eslint']
 let g:markdown_fenced_languages = ['typescript', 'ts=typescript', 'javascript', 'js=javascript', 'json=javascript', 'scss', 'bash', 'sh=bash']
 
 call plug#begin('~/.vim/plugged')
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'urbit/hoon.vim'
 Plug 'urbit/hoon.vim'
 Plug 'junegunn/goyo.vim'
 call plug#end()
+
+let g:asyncomplete_auto_completeopt = 0
+set completeopt=menuone,noinsert
+
+if executable('hoon-language-server')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'hoon-language-server',
+        \ 'cmd': ['hoon-language-server'],
+        \ 'whitelist': ['hoon'],
+        \ })
+endif
 
 au BufRead,BufNewFile *-write.md setlocal textwidth=36 
 au BufRead,BufNewFile *-write.md Goyo 36

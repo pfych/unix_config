@@ -1,5 +1,5 @@
 # Path
-export PATH="${PATH}:${HOME}/.local/bin"
+export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.local/share/gem/ruby/3.0.0/bin"
 export CONFIGDIR="${HOME}/.config"
 export XDG_CONFIG_HOME=$CONFIGDIR
 
@@ -48,7 +48,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Prompt
 function precmd {
-  PROMPT="🌊 [%c] "
+  PROMPT="[%c] "
   RPROMPT="$(git_super_status)"
 }
 
