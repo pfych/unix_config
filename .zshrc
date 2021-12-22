@@ -3,6 +3,9 @@ export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.local/share/gem/ruby/3.0.0/bin"
 export CONFIGDIR="${HOME}/.config"
 export XDG_CONFIG_HOME=$CONFIGDIR
 
+export ZSH_DIR="$CONFIGDIR/oh-my-zsh"
+export ZSH_CUSTOM="$ZSH_DIR/custom"
+
 # Text colours
 export BLACK_TEXT="\033[30m"
 export RED_TEXT="\033[31m"
@@ -68,7 +71,6 @@ export SKIP_PREFLIGHT_CHECK=true
 # FZF
 export FZF_DEFAULT_COMMAND='find . -type d \( -name node_modules -o -name .git -o -path name \) -prune -false -o -name "*"'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source ~/.config/scripts/custom_fzf.sh
 
 # Better dig
 source ~/.config/scripts/dig.sh
