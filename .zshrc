@@ -1,5 +1,5 @@
 # Path
-export PATH="${PATH}:${HOME}/.local/bin"
+export PATH="${PATH}:${HOME}/.local/bin:/usr/local/sbin"
 export CONFIGDIR="${HOME}/.config"
 export XDG_CONFIG_HOME=$CONFIGDIR
 
@@ -81,12 +81,6 @@ source ~/.config/scripts/encrypt.sh
 
 # Vent
 source ~/.config/scripts/vent.sh
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/noah/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/noah/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/noah/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/noah/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 export TERM=xterm-256color
 
 eval $(thefuck --alias)
@@ -100,3 +94,9 @@ function git() {
   esac
 }
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/noah/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/noah/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/noah/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/noah/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
