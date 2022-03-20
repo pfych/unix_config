@@ -6,6 +6,8 @@ export XDG_CONFIG_HOME=$CONFIGDIR
 export ZSH_DIR="$CONFIGDIR/oh-my-zsh"
 export ZSH_CUSTOM="$ZSH_DIR/custom"
 
+export TERM=xterm-256color
+
 # Text colours
 export BLACK_TEXT="\033[30m"
 export RED_TEXT="\033[31m"
@@ -55,9 +57,6 @@ function precmd {
   RPROMPT="$(git_super_status)"
 }
 
-# Wal
-# (cat ~/.cache/wal/sequences &)
-
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
 
@@ -78,24 +77,24 @@ source ~/.config/scripts/dig.sh
 # Scratchpad command
 source ~/.config/scripts/scratch.sh
 
-#Encrypt Files
+# Encrypt Files
 source ~/.config/scripts/encrypt.sh 
 
 # Vent
 source ~/.config/scripts/vent.sh
-export TERM=xterm-256color
 
+# thefuck
 eval $(thefuck --alias)
-
 alias a=fuck
 
+# Better Git
 function git() {
   case $* in
     rebase* ) HUSKY_SKIP_HOOKS=1 command git "$@";;
     * ) command git "$@"
   esac
 }
-
+source ~/.config/scripts/git_fzf.sh 
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/noah/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/noah/Downloads/google-cloud-sdk/path.zsh.inc'; fi
