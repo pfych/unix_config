@@ -2,6 +2,7 @@
 export PATH="${PATH}:${HOME}/.local/bin:/usr/local/sbin:${HOME}/.local/share/gem/ruby/3.0.0/bin"
 export CONFIGDIR="${HOME}/.config"
 export XDG_CONFIG_HOME=$CONFIGDIR
+export IPFS_PATH=/mnt/kachow/ipfs
 
 export ZSH_DIR="$CONFIGDIR/oh-my-zsh"
 export ZSH_CUSTOM="$ZSH_DIR/custom"
