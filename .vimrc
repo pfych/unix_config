@@ -33,6 +33,7 @@ colorscheme PaperColor
 " GOYO CONFIG
 
 au BufRead,BufNewFile *-write.md setlocal textwidth=36 
+au BufRead,BufNewFile *-write.md setlocal spell 
 au BufRead,BufNewFile *-write.md Goyo 36
 
 function! s:goyo_enter()

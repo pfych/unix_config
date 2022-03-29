@@ -2,12 +2,12 @@
 
 # TODO Suport input like "tomorrow", "today" etc
 function scratch () {
-  requestedDate=$(date +"%d-%m-%y")
+  requestedDate=$(date +"%y-%m-%d")
   vim ~/Documents/Scratchpad/$requestedDate.md 
 }
 
 function wscratch () {
-  requestedDate=$(date +"%d-%m-%y")
+  requestedDate=$(date +"%y-%m-%d")
   vim ~/Documents/Scratchpad-write/$requestedDate-write.md 
 }
 
