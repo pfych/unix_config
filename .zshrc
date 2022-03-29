@@ -68,7 +68,7 @@ export PATH="$HOME/.serverless/bin:$PATH"
 export SKIP_PREFLIGHT_CHECK=true
 
 # FZF
-export FZF_DEFAULT_COMMAND='find . -type d \( -name node_modules -o -name .git -o -path name \) -prune -false -o -name "*"'
+export FZF_DEFAULT_COMMAND='find . -type d \( -name Pods -o -name .yarn -o -name node_modules -o -name .git -o -path name \) -prune -false -o -name "*"'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Better dig
@@ -82,6 +82,9 @@ source ~/.config/scripts/encrypt.sh
 
 # Vent
 source ~/.config/scripts/vent.sh
+
+# Lint
+source ~/.config/scripts/lint.sh
 
 # thefuck
 eval $(thefuck --alias)

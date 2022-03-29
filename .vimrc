@@ -1,6 +1,7 @@
+" VIM CONFIG
+
 syntax enable
 set number relativenumber
-execute pathogen#infect()
 
 filetype plugin indent on
 set expandtab
@@ -9,38 +10,27 @@ set tabstop=2
 
 map <F1> :Vex
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_typescript_checkers = ['eslint']
-
 let g:markdown_fenced_languages = ['typescript', 'ts=typescript', 'javascript', 'js=javascript', 'json=javascript', 'scss', 'bash', 'sh=bash']
 
+" PLUGIN CONFIG
+
 call plug#begin('~/.vim/plugged')
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'urbit/hoon.vim'
-Plug 'urbit/hoon.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'airblade/vim-gitgutter'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
-let g:asyncomplete_auto_completeopt = 0
-set completeopt=menuone,noinsert
+" Theme
+set t_Co=256
+set background=dark
+colorscheme PaperColor
 
-if executable('hoon-language-server')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'hoon-language-server',
-        \ 'cmd': ['hoon-language-server'],
-        \ 'whitelist': ['hoon'],
-        \ })
-endif
+" GOYO CONFIG
 
 au BufRead,BufNewFile *-write.md setlocal textwidth=36 
 au BufRead,BufNewFile *-write.md Goyo 36
@@ -65,3 +55,72 @@ endfunction
 
 autocmd! User GoyoEnter call <SID>goyo_enter()
 autocmd! User GoyoLeave call <SID>goyo_leave()
+
+" FZF CONFIG
+
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+" Syntax
+
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+"" dark red
+hi tsxTagName guifg=#E06C75
+hi tsxComponentName guifg=#E06C75
+hi tsxCloseComponentName guifg=#E06C75
+"" orange
+hi tsxCloseString guifg=#F99575
+hi tsxCloseTag guifg=#F99575
+hi tsxCloseTagName guifg=#F99575
+hi tsxAttributeBraces guifg=#F99575
+hi tsxEqual guifg=#F99575
+"" yellow
+hi tsxAttrib guifg=#F8BD7F cterm=italic
+"" light-grey
+hi tsxTypeBraces guifg=#999999
+"" dark-grey
+hi tsxTypes guifg=#666666
+"" Other
+hi ReactState guifg=#C176A7
+hi ReactProps guifg=#D19A66
+hi ApolloGraphQL guifg=#CB886B
+hi Events ctermfg=204 guifg=#56B6C2
+hi ReduxKeywords ctermfg=204 guifg=#C678DD
+hi ReduxHooksKeywords ctermfg=204 guifg=#C176A7
+hi WebBrowser ctermfg=204 guifg=#56B6C2
+hi ReactLifeCycleMethods ctermfg=204 guifg=#D19A66
+
+" Autocomplete
+
+"" Tab completion
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+"" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+"" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+"" Run the Code Lens action on the current line.
+nmap <leader>cl  <Plug>(coc-codelens-action)
+
+"" Give more height
+set cmdheight=2
+
+"" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Prettier
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+
+
+" EOF
