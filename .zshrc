@@ -43,6 +43,9 @@ export ZSH="$CONFIGDIR/oh-my-zsh"
 plugins=(git-prompt git zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
+# Use NVIM
+alias vim=nvim
+
 # NVM
 export NVM_DIR="$CONFIGDIR/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

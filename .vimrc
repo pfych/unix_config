@@ -4,6 +4,7 @@ syntax enable
 set number relativenumber
 
 filetype plugin indent on
+set showcmd
 set expandtab
 set shiftwidth=2
 set tabstop=2
@@ -23,6 +24,8 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'karolbelina/uxntal.vim'
+Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
 " Theme
@@ -91,6 +94,38 @@ hi ReduxHooksKeywords ctermfg=204 guifg=#C176A7
 hi WebBrowser ctermfg=204 guifg=#56B6C2
 hi ReactLifeCycleMethods ctermfg=204 guifg=#D19A66
 
+"" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Ripgrep internal search
+
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+" IDE-Like shortcuts
+nnoremap <leader>f :RG
+nnoremap <leader>ff :Files
+
 " Autocomplete
 
 "" Tab completion
@@ -110,6 +145,10 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
 "" Run the Code Lens action on the current line.
 nmap <leader>cl  <Plug>(coc-codelens-action)
+"" Rename symbol
+nmap <leader>rn <Plug>(coc-rename)
+
+
 
 "" Give more height
 set cmdheight=2
@@ -122,6 +161,5 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Prettier
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
-
 
 " EOF
