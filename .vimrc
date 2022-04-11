@@ -35,9 +35,9 @@ colorscheme PaperColor
 
 " GOYO CONFIG
 
-au BufRead,BufNewFile *-write.md setlocal textwidth=36 
+au BufRead,BufNewFile *-write.md setlocal textwidth=70 
 au BufRead,BufNewFile *-write.md setlocal spell 
-au BufRead,BufNewFile *-write.md Goyo 36
+au BufRead,BufNewFile *-write.md Goyo 70
 
 function! s:goyo_enter()
   let b:quitting = 0
