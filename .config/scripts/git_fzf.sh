@@ -19,7 +19,13 @@ checkout() {
 
 commit() {
   is_in_git_repo || return
-  git commit -m "[`git rev-parse --abbrev-ref HEAD | cut -f1,2 -d - | cut -f2 -d /`] $*"
+  BRANCH_NAME=`git rev-parse --abbrev-ref HEAD | cut -f1,2 -d - | cut -f2 -d /`
+
+  if test "$BRANCH_NAME" != 'master' -a "$BRANCH_NAME" != 'main' -a "$BRANCH_NAME" != 'rnd'; then
+    git commit -m "[$BRANCH_NAME] $*"
+  else
+    echo "$RED_TEXT\nCannot generate commit message for $BRANCH_NAME$DEFAULT_TEXT\n"
+  fi
 }
 
 add() {
