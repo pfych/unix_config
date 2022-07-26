@@ -31,13 +31,15 @@ function codeScratch () {
 
     # Essential files
     echo '{"compilerOptions": {"module": "commonjs","esModuleInterop": true,"target": "es6","moduleResolution": "node","sourceMap": true,"outDir": "dist"},"lib": ["es2015"]}' > tsconfig.json
-    echo 'module.exports={semi: true,singleQuote: true,tabWidth: 2,trailingComma: 'all',arrowParens: 'always',printWidth: 80};' > .prettierrc.js
+    echo 'module.exports={semi: true,singleQuote: true,tabWidth: 2,trailingComma: "all",arrowParens: "always",printWidth: 80};' > .prettierrc.js
     echo 'console.log("hello world")' > scratch.ts
     jq '.scripts = { start: "ts-node-dev --respawn scratch.ts" }' package.json > tmp.json
     rm package.json
     mv tmp.json package.json
   fi
-  
+
+  cd "$(pwd)/$DATE"
+
   # Start editor session
   tmux new-session \; \
     send-keys 'vim scratch.ts' C-m \; \
