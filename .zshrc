@@ -90,6 +90,9 @@ source ~/.config/scripts/vent.sh
 # Lint
 source ~/.config/scripts/lint.sh
 
+# Thumb
+source ~/.config/scripts/thumb.sh 
+
 # thefuck
 eval $(thefuck --alias)
 alias a=fuck
