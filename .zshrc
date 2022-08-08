@@ -90,6 +90,9 @@ source ~/.config/scripts/vent.sh
 # Lint
 source ~/.config/scripts/lint.sh
 
+# Devika project launch
+source ~/.config/scripts/project.sh
+
 # thefuck
 eval $(thefuck --alias)
 alias a=fuck
