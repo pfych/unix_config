@@ -93,6 +93,9 @@ source ~/.config/scripts/lint.sh
 # Devika project launch
 source ~/.config/scripts/project.sh
 
+# Thumb
+source ~/.config/scripts/thumb.sh 
+
 # thefuck
 eval $(thefuck --alias)
 alias a=fuck
