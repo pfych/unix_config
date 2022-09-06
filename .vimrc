@@ -33,6 +33,7 @@ set t_Co=256
 set background=dark
 colorscheme PaperColor
 
+
 " GOYO CONFIG
 
 au BufRead,BufNewFile *-write.md setlocal textwidth=70 
@@ -129,15 +130,7 @@ nnoremap <leader>ff :Files
 " Autocomplete
 
 "" Tab completion
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 "" Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
