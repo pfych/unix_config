@@ -96,6 +96,9 @@ source ~/.config/scripts/project.sh
 # Thumb
 source ~/.config/scripts/thumb.sh 
 
+# Compress
+source ~/.config/scripts/compress.sh
+
 # thefuck
 eval $(thefuck --alias)
 alias a=fuck
