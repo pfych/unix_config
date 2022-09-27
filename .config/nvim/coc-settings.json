@@ -1,9 +1,9 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["scss", "typescript", "javascript", "typescriptreact"],
   "eslint.packageManager": "yarn",
-  "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
+  "eslint.enable": true,
+  "eslint.probe": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
   "eslint.workingDirectories": [{ "mode": "auto" }],
   "eslint.autoFixOnSave": true,
   "diagnostic.errorSign": "•",
