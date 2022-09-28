@@ -32,8 +32,7 @@ call plug#end()
 set t_Co=256
 set background=dark
 colorscheme PaperColor
-
-
+hi CocMenuSel ctermbg=30
 " GOYO CONFIG
 
 au BufRead,BufNewFile *-write.md setlocal textwidth=70 
