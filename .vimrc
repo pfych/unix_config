@@ -2,6 +2,8 @@
 
 syntax enable
 set number relativenumber
+set undofile
+set undodir=$HOME/.vim/undo
 
 filetype plugin indent on
 set showcmd
@@ -26,6 +28,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'karolbelina/uxntal.vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'urbit/hoon.vim'
 call plug#end()
 
 " Theme
@@ -153,5 +156,14 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Prettier
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+
+" Hoon LSF
+if executable('hoon-language-server')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'hoon-language-server',
+        \ 'cmd': ['hoon-language-server'],
+        \ 'whitelist': ['hoon'],
+        \ })
+endif
 
 " EOF
