@@ -99,6 +99,9 @@ source ~/.config/scripts/thumb.sh
 # Compress
 source ~/.config/scripts/compress.sh
 
+# Ripgrep fzf
+source ~/.config/scripts/rg_fzf.sh
+
 # thefuck
 eval $(thefuck --alias)
 alias a=fuck
