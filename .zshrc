@@ -46,6 +46,9 @@ source $ZSH/oh-my-zsh.sh
 # Use NVIM
 alias vim=nvim
 
+# Use gdate on MacOS
+if [[ "$OSTYPE" == "darwin"* ]]; then; alias date=gdate; fi
+
 # NVM
 export NVM_DIR="$CONFIGDIR/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
