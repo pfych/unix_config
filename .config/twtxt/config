@@ -1,0 +1,13 @@
+[twtxt]
+nick = pfych
+twtfile = /home/pfych/Developer/StaticSite/src/twtxt.txt
+twturl = https://pfy.ch/twtxt.txt
+disclose_identity = True
+character_limit = 140
+character_warning = 140
+pre_tweet_hook = "aws cp s3://www.pfy.ch {twtfile}"
+post_tweet_hook = "aws s3 cp {twtfile} s3://www.pfy.ch"
+
+[following]
+twtxt = https://buckket.org/twtxt_news.txt
+
