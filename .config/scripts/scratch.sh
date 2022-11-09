@@ -3,16 +3,35 @@
 # TODO Suport input like "tomorrow", "today" etc
 function scratch () {
   requestedDate=$(date +"%y-%m-%d")
-  vim ~/Documents/Scratchpad/$requestedDate.md 
+  vim ~/Documents/Scratchpad/$requestedDate.md
 }
 
 function wscratch () {
   requestedDate=$(date +"%y-%m-%d")
-  vim ~/Documents/Scratchpad-write/$requestedDate-write.md 
+  if [ ! -e ~/Documents/Scratchpad-write/$requestedDate-write.md ]; then
+    touch ~/Documents/Scratchpad-write/$requestedDate-write.md
+    echo "---" >> ~/Documents/Scratchpad-write/$requestedDate-write.md
+    echo "title: " >> ~/Documents/Scratchpad-write/$requestedDate-write.md
+    echo "summary: " >> ~/Documents/Scratchpad-write/$requestedDate-write.md
+    echo "image: " >> ~/Documents/Scratchpad-write/$requestedDate-write.md
+    echo "alt: " >> ~/Documents/Scratchpad-write/$requestedDate-write.md
+    echo "attribution: " >> ~/Documents/Scratchpad-write/$requestedDate-write.md
+    echo "---" >> ~/Documents/Scratchpad-write/$requestedDate-write.md
+  fi
+  vim ~/Documents/Scratchpad-write/$requestedDate-write.md
 }
 
-function fscratch() {
-  grep -Rl -e "$(find ~/Documents/Scratchpad/* -type f -exec cat {} \; | fzf)" ~/Documents/Scratchpad | xargs -o vim
+function nscratch () {
+  requestedDate=$(date +"%y-%m-%d")
+  if [ ! -e ~/Documents/Scratchpad-now/$requestedDate-write.md ]; then
+    touch ~/Documents/Scratchpad-now/$requestedDate-write.md
+    echo "---" >> ~/Documents/Scratchpad-now/$requestedDate-write.md
+    echo "title: " >> ~/Documents/Scratchpad-now/$requestedDate-write.md
+    echo "---" >> ~/Documents/Scratchpad-now/$requestedDate-write.md
+    echo "" >> ~/Documents/Scratchpad-now/$requestedDate-write.md
+    echo "Today I " >> ~/Documents/Scratchpad-now/$requestedDate-write.md
+  fi
+  vim ~/Documents/Scratchpad-now/$requestedDate-write.md
 }
 
 function codeScratch () {
@@ -21,7 +40,7 @@ function codeScratch () {
   if test ! -d "$(pwd)/$DATE"; then
     mkdir "$(pwd)/$DATE";
     cd "$(pwd)/$DATE"
-    
+
     # Setup project
     yarn init -y
     yarn add @types/node ts-node-dev typescript prettier -D
