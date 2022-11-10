@@ -47,7 +47,10 @@ source $ZSH/oh-my-zsh.sh
 alias vim=nvim
 
 # Use gdate on MacOS
-if [[ "$OSTYPE" == "darwin"* ]]; then; alias date=gdate; fi
+if [[ "$OSTYPE" == "darwin"* ]]; then; 
+  alias date=gdate; 
+  alias twtxt="AWS_PROFILE=personal twtxt -c .config/twtxt/config"
+fi
 
 # NVM
 export NVM_DIR="$CONFIGDIR/nvm"
