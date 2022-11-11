@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# TODO Suport input like "tomorrow", "today" etc
 function scratch () {
   requestedDate=$(date +"%y-%m-%d")
   vim ~/Documents/Scratchpad/$requestedDate.md
@@ -35,16 +34,17 @@ function nscratch () {
 }
 
 function codeScratch () {
-  cd ~/Developer/Scratch/
+  cd ~/Developer/Scratch/ || exit
   DATE=$(date +"%y-%m-%d")
   if test ! -d "$(pwd)/$DATE"; then
     mkdir "$(pwd)/$DATE";
-    cd "$(pwd)/$DATE"
+    cd "$(pwd)/$DATE" || exit
 
     # Setup project
     yarn init -y
     yarn add @types/node ts-node-dev typescript prettier -D
     if test ! $# -eq 0; then
+      # shellcheck disable=SC2086
       yarn add $*
     fi
 
@@ -57,7 +57,7 @@ function codeScratch () {
     mv tmp.json package.json
   fi
 
-  cd "$(pwd)/$DATE"
+  cd "$(pwd)/$DATE" || exit
 
   # Start editor session
   tmux new-session \; \

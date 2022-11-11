@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
-rgfzf() {
-  FZF_SELECTION=$(rg -g '!*.{svg,jz}' . | fzf)
-  FILE_NAME=$(echo $FZF_SELECTION | cut -d':' -f1)
-  CONTENT=$(echo $FZF_SELECTION | cut -d':' -f2-) 
-  ESCAPED=$(echo $CONTENT | sed -e 's,/,\\/,g')
+function rgfzf() {
+  FZF_SELECTION=$(rg -g '!*.{svg,js}' . | fzf)
+  FILE_NAME=$(echo "$FZF_SELECTION" | cut -d':' -f1)
+  CONTENT=$(echo "$FZF_SELECTION" | cut -d':' -f2-)
+  ESCAPED=$(echo "$CONTENT" | sed -e 's,/,\\/,g')
 
-  vim $FILE_NAME -c "/$ESCAPED"
+  vim "$FILE_NAME" -c "/$ESCAPED"
 }

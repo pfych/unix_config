@@ -1,4 +1,4 @@
-ezdig() {
+function ezdig() {
   CNAME="$(dig @1.1.1.1 $1 CNAME | sed -n -e '/ANSWER SECTION/,/;;/ p' | sed -n '/^[a-z]/p')"
   NS="$(dig @1.1.1.1 $1 NS | sed -n -e '/ANSWER SECTION/,/;;/ p' | sed -n '/^[a-z]/p')"
   A="$(dig @1.1.1.1 $1 A | sed -n -e '/ANSWER SECTION/,/;;/ p' | sed -n '/^[a-z]/p')"

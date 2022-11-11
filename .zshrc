@@ -90,15 +90,6 @@ source ~/.config/scripts/scratch.sh
 # Encrypt Files
 source ~/.config/scripts/encrypt.sh 
 
-# Vent
-source ~/.config/scripts/vent.sh
-
-# Lint
-source ~/.config/scripts/lint.sh
-
-# Devika project launch
-source ~/.config/scripts/project.sh
-
 # Thumb
 source ~/.config/scripts/thumb.sh 
 
