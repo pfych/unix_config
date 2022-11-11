@@ -30,7 +30,7 @@ function commit() {
 
 function add() {
   is_in_git_repo || return
-  git add "$(git status | grep modified: | sed -e 's/ *.*: *//g' | fzf -m)"
+  git add $(git status | grep modified: | sed -e 's/ *.*: *//g' | fzf -m)
   git status
 }
 
