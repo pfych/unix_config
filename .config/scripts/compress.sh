@@ -13,3 +13,24 @@ drive-by() {
     fi
   done
 }
+
+site-prep() {
+  mkdir -p md/;
+  mkdir -p sm/;
+
+  convert "$1" \
+    -strip \
+    -interlace Plane \
+    -gaussian-blur 0.05 \
+    -quality 85% \
+    -resize 720 "md/${1%.*}.jpg"
+
+  convert "$1" \
+    -strip \
+    -scale 10% \
+    -blur 0x2.5 \
+    -resize 1000% \
+    -resize 180 "sm/${1%.*}.jpg"
+
+  echo "$1 is prepped"
+}
