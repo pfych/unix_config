@@ -24,7 +24,13 @@ function commit() {
   if test "$BRANCH_NAME" != 'master' -a "$BRANCH_NAME" != 'main' -a "$BRANCH_NAME" != 'rnd'; then
     git commit -m "[$BRANCH_NAME] $*"
   else
-    echo "$RED_TEXT\nCannot generate commit message for $BRANCH_NAME$DEFAULT_TEXT\n"
+    echo "$RED_TEXT\nAre you sure you want to commit directly to $BRANCH_NAME?$DEFAULT_TEXT"
+    select answer in "Yes" "No"; do
+      case $answer in
+        Yes ) git commit -m "$*"; break;;
+        No ) break;;
+      esac
+    done
   fi
 }
 
