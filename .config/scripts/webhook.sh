@@ -6,7 +6,8 @@ ENDPOINT='_'
 FILE='_'
 
 getUser() {
-  sed -nE "/^\[$REQUESTED_USER\]$/{:l n;/^(\[.*\])?$/q;p;bl}" ~/.config/webhook > /tmp/webhook_config.sh;
+  /usr/local/bin/gsed -nE "/^\[$REQUESTED_USER\]$/{:l n;/^(\[.*\])?$/q;p;bl}" ~/.config/webhook > /tmp/webhook_config.sh || 
+    sed -nE "/^\[$REQUESTED_USER\]$/{:l n;/^(\[.*\])?$/q;p;bl}" ~/.config/webhook > /tmp/webhook_config.sh;
   chmod +x /tmp/webhook_config.sh
   . /tmp/webhook_config.sh
   rm /tmp/webhook_config.sh
