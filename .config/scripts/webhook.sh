@@ -24,7 +24,7 @@ printUsage() {
   echo ""
 }
 
-while getopts 'c:n:p:m:e:' flag; do
+while getopts 'c:n:p:m:e:f:h' flag; do
   case "${flag}" in
     c)  REQUESTED_USER="${OPTARG}"; getUser ;;
     n)  NAME="${OPTARG}" ;;
