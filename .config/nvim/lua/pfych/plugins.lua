@@ -22,4 +22,6 @@ packer.startup(function(use)
   use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
 
   use { 'prettier/vim-prettier', run = 'pnpm install' }
+
+  use { "catppuccin/nvim", as = "catppuccin" }
 end)
