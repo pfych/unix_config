@@ -19,9 +19,13 @@ packer.startup(function(use)
   use 'williamboman/mason-lspconfig.nvim'
 
   use 'nvim-tree/nvim-web-devicons'
-  use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
+  use { 'romgrk/barbar.nvim', requires = 'nvim-web-devicons' }
 
   use { 'prettier/vim-prettier', run = 'pnpm install' }
 
-  use { "catppuccin/nvim", as = "catppuccin" }
+  use { 'catppuccin/nvim', as = "catppuccin" }
+
+  use "nvim-lua/plenary.nvim"
+  use 'nvim-treesitter/nvim-treesitter'
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.1' }
 end)
