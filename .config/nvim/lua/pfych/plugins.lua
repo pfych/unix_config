@@ -28,4 +28,6 @@ packer.startup(function(use)
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.1' }
 
   use { 'prettier/vim-prettier', build = 'pnpm install' }
+
+  use { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' }
 end)
