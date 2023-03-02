@@ -29,6 +29,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'karolbelina/uxntal.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'urbit/hoon.vim'
+Plug 'ggandor/leap.nvim'
 call plug#end()
 
 " Theme
@@ -165,5 +166,8 @@ if executable('hoon-language-server')
         \ 'whitelist': ['hoon'],
         \ })
 endif
+
+" Leap
+" lua require('leap').add_default_mappings()
 
 " EOF
