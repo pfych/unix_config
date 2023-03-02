@@ -6,10 +6,12 @@ drive-by() {
   for file in *.png; do
     if convert "$file" -channel a -separate -format "%[fx:100*mean]%" info: | grep -qE "(99\.|100)"; then
       convert "$file" "${file%.png}.jpg"
-      echo "Created jpg"
+      convert "$file" "${file%.png}.webp"
+      echo "Created jpg & webp"
     else
       convert "$file" -define png:include-chunk=none -quality 95 -depth 8 "$file"
-      echo "Compressed png"
+      convert "$file" "${file%.png}.webp"
+      echo "Compressed png & created webp"
     fi
   done
 }
