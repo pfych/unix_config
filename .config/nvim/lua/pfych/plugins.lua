@@ -21,11 +21,11 @@ packer.startup(function(use)
   use 'nvim-tree/nvim-web-devicons'
   use { 'romgrk/barbar.nvim', requires = 'nvim-web-devicons' }
 
-  use { 'prettier/vim-prettier', run = 'pnpm install' }
-
   use { 'catppuccin/nvim', as = "catppuccin" }
 
   use "nvim-lua/plenary.nvim"
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.1' }
+
+  use { 'prettier/vim-prettier', build = 'pnpm install' }
 end)
