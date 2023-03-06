@@ -15,17 +15,18 @@ packer.startup(function(use)
   use 'L3MON4D3/LuaSnip'
 
   use 'neovim/nvim-lspconfig' -- LSP
+  use 'jose-elias-alvarez/null-ls.nvim'
   use 'williamboman/mason.nvim' -- LSP Installer
   use 'williamboman/mason-lspconfig.nvim'
 
   use 'nvim-tree/nvim-web-devicons'
-  use { 'romgrk/barbar.nvim', requires = 'nvim-web-devicons' }
 
   use { 'catppuccin/nvim', as = "catppuccin" }
 
   use "nvim-lua/plenary.nvim"
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.1' }
+  use { "nvim-telescope/telescope-file-browser.nvim" }
 
   use { 'prettier/vim-prettier', build = 'pnpm install' }
 

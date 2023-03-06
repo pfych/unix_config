@@ -9,8 +9,9 @@ mason.setup({
     "prettier",
     "lua-language-server",
     "luaformatter",
-    "tsserver",
+    "eslint_d",
+    "typescript-language-server",
+    "stylelint-lsp"
   },
   automatic_installation = true
 })
-
