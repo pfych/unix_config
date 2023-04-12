@@ -41,11 +41,11 @@ function codeScratch () {
     cd "$(pwd)/$DATE" || exit
 
     # Setup project
-    yarn init -y
-    yarn add @types/node ts-node-dev typescript prettier -D
+    pnpm init
+    pnpm install @types/node ts-node-dev typescript prettier -D
     if test ! $# -eq 0; then
       # shellcheck disable=SC2086
-      yarn add $*
+      pnpm install $*
     fi
 
     # Essential files
@@ -55,14 +55,13 @@ function codeScratch () {
     jq '.scripts = { start: "ts-node-dev --respawn scratch.ts" }' package.json > tmp.json
     rm package.json
     mv tmp.json package.json
+  else
+    cd "$(pwd)/$DATE"
   fi
-
-  cd "$(pwd)/$DATE" || exit
-
   # Start editor session
-  tmux new-session \; \
-    send-keys 'vim scratch.ts' C-m \; \
-    split-window -v \; \
-    send-keys 'yarn start' C-m \;
+  # tmux new-session \; \
+  #  send-keys 'vim scratch.ts' C-m \; \
+  #  split-window -v \; \
+  #  send-keys 'yarn start' C-m \;
 }
 
