@@ -99,6 +99,9 @@ source ~/.config/scripts/compress.sh
 # Ripgrep fzf
 source ~/.config/scripts/rg_fzf.sh
 
+# AWS Profile fzf
+source ~/.config/scripts/aws-profile.sh
+
 # thefuck
 eval $(thefuck --alias)
 alias a=fuck
