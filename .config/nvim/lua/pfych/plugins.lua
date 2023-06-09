@@ -31,4 +31,6 @@ packer.startup(function(use)
   use { 'prettier/vim-prettier', build = 'pnpm install' }
 
   use { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' }
+
+  use { 'bellinitte/uxntal.vim' }
 end)
