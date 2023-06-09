@@ -29,10 +29,19 @@ site-prep() {
 
   convert "$1" \
     -strip \
+    -interlace Plane \
     -scale 10% \
     -blur 0x2.5 \
     -resize 1000% \
     -resize 180 "sm/${1%.*}.jpg"
 
   echo "$1 is prepped"
+}
+
+flac-ipod() {
+  mkdir ./converted;
+  for file in **/*.flac; do
+    ffmpeg -i "$file" -acodec aac -b:a 320k -vn "${file%.flac}.m4a"
+    mv "$file" "./converted";
+  done
 }
