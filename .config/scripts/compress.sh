@@ -41,7 +41,7 @@ site-prep() {
 flac-ipod() {
   mkdir ./converted;
   for file in **/*.flac; do
-    ffmpeg -i "$file" -acodec aac -b:a 320k -vn "${file%.flac}.m4a"
+    ffmpeg -i "$file" -c:a aac -b:a 256k -aac_pns 0 -movflags +faststart -vn "${file%.flac}.m4a"
     mv "$file" "./converted";
   done
 }
