@@ -15,7 +15,11 @@ vim.opt.expandtab = true
 vim.opt.breakindent = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
-vim.opt.wrap = false
 vim.opt.mouse = "a"
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.expand('~/.vim/undodir')
+
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+vim.opt.breakindentopt = "shift:2,min:40,sbr"

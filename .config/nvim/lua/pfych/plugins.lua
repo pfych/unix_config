@@ -9,12 +9,12 @@ vim.cmd [[packadd packer.nvim]]
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  use 'hrsh7th/cmp-buffer'   -- nvim-cmp source for buffer words
+  use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
   use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
-  use 'hrsh7th/nvim-cmp'     -- Completion
+  use 'hrsh7th/nvim-cmp' -- Completion
   use 'L3MON4D3/LuaSnip'
 
-  use 'neovim/nvim-lspconfig'   -- LSP
+  use 'neovim/nvim-lspconfig' -- LSP
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'williamboman/mason.nvim' -- LSP Installer
   use 'williamboman/mason-lspconfig.nvim'
@@ -35,4 +35,6 @@ packer.startup(function(use)
   use 'bellinitte/uxntal.vim'
 
   use { 'edkolev/tmuxline.vim', run = ':Tmuxline vim_statusline_2' }
+
+  use 'preservim/nerdtree'
 end)
