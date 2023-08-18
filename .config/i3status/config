@@ -8,14 +8,12 @@
 
 general {
         colors = true
-        interval = 5
+        interval = 1
 }
 
 order += "wireless _first_"
 order += "battery all"
 order += "disk /"
-order += "load"
-order += "memory"
 order += "tztime local"
 
 wireless _first_ {
