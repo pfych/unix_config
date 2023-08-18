@@ -15,7 +15,6 @@ vim.opt.expandtab = true
 vim.opt.breakindent = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
-vim.opt.wrap = false
 vim.opt.mouse = "a"
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.expand('~/.vim/undodir')
@@ -23,3 +22,9 @@ vim.opt.undodir = vim.fn.expand('~/.vim/undodir')
 -- UXN Assembly on save
 vim.cmd("command Uxnasm !uxnasm % %<.rom")
 vim.cmd("autocmd BufWritePost *.tal :Uxnasm")
+
+-- Line wrap config
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+vim.opt.breakindentopt = "shift:2,min:40,sbr"

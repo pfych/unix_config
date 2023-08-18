@@ -47,8 +47,8 @@ source $ZSH/oh-my-zsh.sh
 alias vim=nvim
 
 # Use gdate on MacOS
-if [[ "$OSTYPE" == "darwin"* ]]; then; 
-  alias date=gdate; 
+if [[ "$OSTYPE" == "darwin"* ]]; then;
+  alias date=gdate;
   alias twtxt="AWS_PROFILE=personal twtxt -c .config/twtxt/config"
 fi
 
@@ -88,10 +88,10 @@ source ~/.config/scripts/dig.sh
 source ~/.config/scripts/scratch.sh
 
 # Encrypt Files
-source ~/.config/scripts/encrypt.sh 
+source ~/.config/scripts/encrypt.sh
 
 # Thumb
-source ~/.config/scripts/thumb.sh 
+source ~/.config/scripts/thumb.sh
 
 # Compress
 source ~/.config/scripts/compress.sh
@@ -113,7 +113,7 @@ function git() {
     * ) command git "$@"
   esac
 }
-source ~/.config/scripts/git_fzf.sh 
+source ~/.config/scripts/git_fzf.sh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/noah/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/noah/Downloads/google-cloud-sdk/path.zsh.inc'; fi
