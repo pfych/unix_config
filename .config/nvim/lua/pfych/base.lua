@@ -19,3 +19,7 @@ vim.opt.wrap = false
 vim.opt.mouse = "a"
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.expand('~/.vim/undodir')
+
+-- UXN Assembly on save
+vim.cmd("command Uxnasm !uxnasm % %<.rom")
+vim.cmd("autocmd BufWritePost *.tal :Uxnasm")
