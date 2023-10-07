@@ -3,6 +3,7 @@ export PATH="${PATH}:${HOME}/.local/bin:/usr/local/sbin:${HOME}/.local/share/gem
 export CONFIGDIR="${HOME}/.config"
 export XDG_CONFIG_HOME=$CONFIGDIR
 export IPFS_PATH=/mnt/kachow/ipfs
+export EDITOR=nvim
 
 export ZSH_DIR="$CONFIGDIR/oh-my-zsh"
 export ZSH_CUSTOM="$ZSH_DIR/custom"

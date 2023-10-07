@@ -37,4 +37,6 @@ packer.startup(function(use)
   use { 'edkolev/tmuxline.vim', run = ':Tmuxline vim_statusline_2' }
 
   use 'preservim/nerdtree'
+
+  use 'elkowar/yuck.vim'
 end)

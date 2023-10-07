@@ -22,6 +22,7 @@ font pango:DejaVu Sans Mono 12
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id nm-applet
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -189,14 +190,24 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id dunst
+exec --no-startup-id setxkbmap -option "ctrl:nocaps"
+exec --no-startup-id picom --backend glx
+
 # class           #border #bg     #text   #indicator
 client.focused    #1c1c1c #1c1c1c #ffffff #ffffff
-client.unfocused  #101010 #101010 #3c3c3c #3c3c3c
+client.unfocused  #1c1c1c #1c1c1c #3c3c3c #3c3c3c
+
+default_border pixel 0 
+gaps inner 20px
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
   status_command i3status
   position top
+  separator_symbol " | "
 
   colors {
     background #1c1c1c
