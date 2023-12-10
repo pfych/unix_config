@@ -17,8 +17,15 @@ drive-by() {
 }
 
 site-prep() {
+  mkdir -p lg/;
   mkdir -p md/;
   mkdir -p sm/;
+
+  convert "$1" \
+    -strip \
+    -quality 85% \
+    -interlace Plane \
+    -resize 1800 "lg/${1%.*}.jpg"
 
   convert "$1" \
     -strip \
