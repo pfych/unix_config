@@ -17,6 +17,8 @@ function awsconfig {
 
   export $(xargs < /tmp/keys.tmp)
 
+  rm /tmp/raw_keys.tmp /tmp/keys.tmp
+  
   aws configure set aws_access_key_id "${aws_access_key_id}" --profile "$AWS_PROFILE"
   aws configure set aws_secret_access_key "${aws_secret_access_key}" --profile "$AWS_PROFILE"
   aws configure set aws_session_token "${aws_session_token}" --profile "$AWS_PROFILE"
@@ -29,7 +31,5 @@ function awsconfig {
   else
     echo "AWS Keys did not work!"
   fi
-
-  rm /tmp/raw_keys.tmp /tmp/keys.tmp
 }
 
