@@ -1,5 +1,10 @@
 # Path
-export PATH="${PATH}:${HOME}/.local/bin:/usr/local/sbin:${HOME}/.local/share/gem/ruby/3.0.0/bin:/usr/local/bin"
+if [[ $(uname) == "Darwin" ]]; then
+  export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH:${HOME}/.local/bin:/usr/local/sbin:${HOME}/.local/share/gem/ruby/2.0.0/bin:/usr/local/bin"
+else
+  export PATH="${PATH}:${HOME}/.local/bin:/usr/local/sbin:${HOME}/.local/share/gem/ruby/2.0.0/bin:/usr/local/bin"
+fi
+
 export CONFIGDIR="${HOME}/.config"
 export XDG_CONFIG_HOME=$CONFIGDIR
 export IPFS_PATH=/mnt/kachow/ipfs
