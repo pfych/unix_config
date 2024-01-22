@@ -3,6 +3,7 @@ export PATH="${PATH}:${HOME}/.local/bin:/usr/local/sbin:${HOME}/.local/share/gem
 export CONFIGDIR="${HOME}/.config"
 export XDG_CONFIG_HOME=$CONFIGDIR
 export IPFS_PATH=/mnt/kachow/ipfs
+export EDITOR=nvim
 
 export ZSH_DIR="$CONFIGDIR/oh-my-zsh"
 export ZSH_CUSTOM="$ZSH_DIR/custom"
@@ -132,3 +133,8 @@ if [ -f '/Users/noah/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Fuucckkkk python
+export PYENV_ROOT="/mnt/kachow/pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

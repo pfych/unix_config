@@ -1,9 +1,10 @@
 #!/bin/bash
 
 function thumb() {
+  UUID=$(uuidgen)
   GRID_X=2
   GRID_Y=4
-  TMP_FILE_LOCATION="/tmp/tmp_chapters_out.mp4"
+  TMP_FILE_LOCATION="/tmp/tmp_chapters_out_$UUID.mp4"
 
   echo "Removing blank frames..."
   
