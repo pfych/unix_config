@@ -102,6 +102,9 @@ source ~/.config/scripts/rg_fzf.sh
 # AWS Profile fzf
 source ~/.config/scripts/aws-profile.sh
 
+# Kill commands
+source ~/.config/scripts/kill.sh
+
 # thefuck
 eval $(thefuck --alias)
 alias a=fuck
@@ -120,3 +123,12 @@ if [ -f '/Users/noah/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/noah/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/noah/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+[ -f "/Users/noah/.ghcup/env" ] && source "/Users/noah/.ghcup/env" # ghcup-env
+
+# bun completions
+[ -s "/Users/noah/.bun/_bun" ] && source "/Users/noah/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
