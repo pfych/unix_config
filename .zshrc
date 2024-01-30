@@ -1,6 +1,10 @@
 # Path
 if [[ $(uname) == "Darwin" ]]; then
   export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH:${HOME}/.local/bin:/usr/local/sbin:${HOME}/.local/share/gem/ruby/2.0.0/bin:/usr/local/bin"
+
+  alias date=gdate;
+  alias twtxt="AWS_PROFILE=personal twtxt -c .config/twtxt/config"
+  export ANDROID_SDK_ROOT=/Users/$USER/Library/Android/sdk
 else
   export PATH="${PATH}:${HOME}/.local/bin:/usr/local/sbin:${HOME}/.local/share/gem/ruby/2.0.0/bin:/usr/local/bin"
 fi
@@ -37,13 +41,6 @@ export CYAN_BACKGROUND="\033[46m"
 export LIGHT_GREY_BACKGROUND="\033[47m"
 export DEFAULT_BACKGROUND="\033[49m"
 
-## OS Specific Path
-#case $OSTYPE in
-#  darwin*)
-#    export PATH="${PATH}:/Users/noahheague/Library/Python/3.7/bin"
-#    alias walMac="${HOME}/scripts/wal";;
-#esac
-
 # oh-my-zsh
 export ZSH="$CONFIGDIR/oh-my-zsh"
 plugins=(git-prompt git zsh-autosuggestions)
@@ -51,12 +48,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Use NVIM
 alias vim=nvim
-
-# Use gdate on MacOS
-if [[ "$OSTYPE" == "darwin"* ]]; then;
-  alias date=gdate;
-  alias twtxt="AWS_PROFILE=personal twtxt -c .config/twtxt/config"
-fi
 
 # NVM
 export NVM_DIR="$CONFIGDIR/nvm"
@@ -129,7 +120,6 @@ if [ -f '/Users/noah/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/noah/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/noah/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
 [ -f "/Users/noah/.ghcup/env" ] && source "/Users/noah/.ghcup/env" # ghcup-env
 
 # bun completions
@@ -140,6 +130,8 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Fuucckkkk python
-export PYENV_ROOT="/mnt/kachow/pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if command -v pyenv; then
+  export PYENV_ROOT="/mnt/kachow/pyenv"
+  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
