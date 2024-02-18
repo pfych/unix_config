@@ -5,6 +5,7 @@ if [[ $(uname) == "Darwin" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
   alias twtxt="AWS_PROFILE=personal twtxt -c .config/twtxt/config"
   export ANDROID_SDK_ROOT=/Users/$USER/Library/Android/sdk
+  eval "$(rbenv init - zsh)"
 else
   export PATH="${PATH}:${HOME}/.local/bin:/usr/local/sbin:${HOME}/.local/share/gem/ruby/2.0.0/bin:/usr/local/bin"
 fi
