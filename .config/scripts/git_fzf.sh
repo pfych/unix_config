@@ -38,7 +38,7 @@ function commit() {
     select answer in "Yes" "No"; do
       case $answer in
         Yes ) git commit -m "$*"; break;;
-        No ) exit 0;;
+        No ) return 1;;
       esac
     done
   fi
