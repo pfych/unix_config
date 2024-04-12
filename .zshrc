@@ -6,8 +6,10 @@ if [[ $(uname) == "Darwin" ]]; then
   alias twtxt="AWS_PROFILE=personal twtxt -c .config/twtxt/config"
   export ANDROID_SDK_ROOT=/Users/$USER/Library/Android/sdk
   eval "$(rbenv init - zsh)"
+  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
   export PATH="${PATH}:${HOME}/.local/bin:/usr/local/sbin:${HOME}/.local/share/gem/ruby/2.0.0/bin:/usr/local/bin"
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 export CONFIGDIR="${HOME}/.config"
