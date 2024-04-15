@@ -17,5 +17,5 @@ function salted-uuid {
   BASE_WITH_DELIM=$(echo -n "$BASE64_SANITIZED" | sed -E 's/./&-/32;s/./&-/20;s/./&-/16;s/./&-/12;s/./&-/8')
 
   # Return with cruft removed
-  echo "$BASE_WITH_DELIM" | cut -f1,2,3,4,5 -d"-" | tr '[a-z]' '[A-Z]'
+  echo "$BASE_WITH_DELIM" | cut -f1,2,3,4,5 -d"-"
 }
