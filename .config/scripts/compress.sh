@@ -2,6 +2,12 @@ decimate() {
   ffmpeg -i "$1" -map 0:v -vf mpdecimate,setpts=N/FRAME_RATE/TB "${1%.*}"-decimated.mp4
 }
 
+togif() {
+  ffmpeg -i "$1" \
+    -filter_complex "[0:v] fps=12,scale=480:-1,split [a][b];[a] palettegen [p];[b][p] paletteuse" \
+    out.gif
+}
+
 drive-by() {
   for file in *.png; do
     if convert "$file" -channel a -separate -format "%[fx:100*mean]%" info: | grep -qE "(99\.|100)"; then
