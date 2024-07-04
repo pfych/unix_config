@@ -46,7 +46,7 @@ function commit() {
 
 function add() {
   is_in_git_repo || return
-  git add $(git status | grep modified: | sed -e 's/ *.*: *//g' | fzf -m)
+  git add $(git status | grep modified: | sed -e 's/ *.*: *//g' | tac | fzf -m)
   git status
 }
 
@@ -54,6 +54,6 @@ function add() {
 function restore() {
   is_in_git_repo || return
   # TODO Adjust this to only list unstaged files!
-  git restore "$(git status | grep modified: | sed -e 's/ *.*: *//g' | fzf -m)"
+  git restore --staged "$(git status | grep modified: | sed -e 's/ *.*: *//g' | tac | fzf -m)"
   git status
 }
