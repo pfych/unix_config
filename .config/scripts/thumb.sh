@@ -1,18 +1,20 @@
 #!/bin/bash
 
 function thumb() {
+  echo "USING GPU!!!"
   UUID=$(uuidgen)
   GRID_X=2
   GRID_Y=4
-  TMP_FILE_LOCATION="/tmp/tmp_chapters_out_$UUID.mp4"
+  TMP_FILE_LOCATION="./tmp_chapters_out_$UUID.mp4"
 
   echo "Removing blank frames..."
-  
+
   ffmpeg \
     -hide_banner \
     -i "$1" \
-    -an -r 0.25 \
-    -vf blackframe=0,metadata=select:key=lavfi.blackframe.pblack:value=15:function=less \
+    -c:a copy \
+    -vaapi_device /dev/dri/renderD128 -vcodec h264_vaapi \
+    -vf "blackframe=0,metadata=select:key=lavfi.blackframe.pblack:value=15:function=less,format=nv12|vaapi,hwupload" \
     "$TMP_FILE_LOCATION"
 
   echo "Getting frame rate..."
@@ -39,7 +41,7 @@ function thumb() {
     -i "$TMP_FILE_LOCATION" \
     -vf "select=not(mod(n\,$SPLICE)),scale=800:-1,tile=$GRID_X\x$GRID_Y" \
     -vsync 0 \
-    chapters.jpg
+    "chapters-$UUID-gpu.jpg"
 
   rm "$TMP_FILE_LOCATION"
 }
