@@ -9,7 +9,7 @@ if [[ $(uname) == "Darwin" ]]; then
   source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
   export PATH="${PATH}:${HOME}/.local/bin:/usr/local/sbin:${HOME}/.local/share/gem/ruby/2.0.0/bin:/usr/local/bin"
-  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 
 fi
 
 export CONFIGDIR="${HOME}/.config"
@@ -133,8 +133,8 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Fuucckkkk python
-if command -v pyenv; then
-  export PYENV_ROOT="/mnt/kachow/pyenv"
-  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
-fi
+# if command -v pyenv; then
+#   export PYENV_ROOT="/mnt/kachow/pyenv"
+#   command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+#   eval "$(pyenv init -)"
+# fi
